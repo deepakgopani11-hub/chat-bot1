@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ApexCloud Customer Support Center - 24/7 intelligent AI customer support chatbot assistant embedded in the bottom left corner.">
+    <title>Customer Support & Help Center | ApexCloud</title>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Ambient Mesh Gradients -->
+    <div class="bg-glow-top" aria-hidden="true"></div>
+    <div class="bg-glow-bottom" aria-hidden="true"></div>
+
+    <!-- Website Host Showcase Wrapper -->
+    <div class="site-wrapper">
+        <header>
+            <nav class="navbar" aria-label="Main Navigation">
+                <a href="#" class="brand" id="brandLogo">
+                    <div class="brand-icon">⚡</div>
+                    <span>ApexCloud</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#solutions">Solutions</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#docs">Documentation</a></li>
+                </ul>
+                <div>
+                    <button class="btn-primary" id="triggerDemoChat">
+                        <span>💬 Need Help?</span>
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Hero Showcase -->
+            <section class="hero-section" id="hero">
+                <div class="badge-tag">
+                    <span class="dot"></span>
+                    <span>Support Agents Online 24/7</span>
+                </div>
+                <h1 class="hero-title">
+                    World-Class Support, <br>
+                    <span class="hero-gradient-text">Right at Your Fingertips</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Experience lightning-fast customer support powered by our intelligent AI assistant. 
+                    Look at the bottom-left corner to start a conversation with Nova anytime.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn-primary" onclick="document.getElementById('botLauncherBtn').click()">
+                        <span>Open Support Widget</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                    <a href="#features" class="btn-secondary">Explore Knowledge Base</a>
+                </div>
+            </section>
+
+            <!-- Support Categories Grid -->
+            <section class="features-grid" id="features" aria-label="Support Topics">
+                <article class="feature-card">
+                    <div class="card-icon">📦</div>
+                    <h3>Order & Shipping</h3>
+                    <p>Track real-time shipment status, manage deliveries, and review fulfillment history.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="card-icon">💳</div>
+                    <h3>Billing & Subscriptions</h3>
+                    <p>Upgrade plans, view invoices, manage payment methods, or request quick refunds.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="card-icon">🛠️</div>
+                    <h3>Technical Assistance</h3>
+                    <p>Troubleshoot API keys, authentication issues, and server health monitoring.</p>
+                </article>
+            </section>
+        </main>
+    </div>
+
+    <!-- ==============================================
+         BOTTOM-LEFT CUSTOMER SUPPORT CHATBOT WIDGET
+         ============================================== -->
+    <aside class="bot-widget-container" id="botWidgetContainer" aria-label="Customer Support Chat">
+        
+        <!-- Welcome Floating Tooltip -->
+        <div class="bot-tooltip-bubble" id="botTooltipBubble" role="status">
+            <span class="hand-wave">👋</span>
+            <span>Hi! Need any help? Chat with us</span>
+        </div>
+
+        <!-- Chat Window Panel (Bottom-Left) -->
+        <section class="bot-chat-window" id="botChatWindow" role="region" aria-label="Chat conversation">
+            
+            <!-- Window Header -->
+            <div class="chat-header">
+                <div class="header-agent-info">
+                    <div class="agent-avatar-wrapper">
+                        <div class="agent-avatar">🤖</div>
+                        <span class="agent-status-indicator" title="Agent Online"></span>
+                    </div>
+                    <div class="agent-details">
+                        <h4>Nova Assistant <span class="verified-badge" title="Official Bot">✓</span></h4>
+                        <p>● Active now • Instant replies</p>
+                    </div>
+                </div>
+                
+                <div class="header-action-buttons">
+                    <!-- Sound toggle -->
+                    <button class="icon-btn" id="soundToggleBtn" title="Toggle audio chime" aria-label="Toggle chime sounds">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                        </svg>
+                    </button>
+                    <!-- Clear chat -->
+                    <button class="icon-btn" id="chatClearBtn" title="Reset conversation" aria-label="Reset conversation">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
+                        </svg>
+                    </button>
+                    <!-- Minimize / Close -->
+                    <button class="icon-btn" id="chatCloseBtn" title="Minimize chat" aria-label="Close chat window">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Messages Stream Area -->
+            <div class="chat-messages-container" id="chatMessagesContainer" role="log" aria-live="polite">
+                <!-- Messages & suggestions populated dynamically by script.js -->
+            </div>
+
+            <!-- Chat Input Footer -->
+            <div class="chat-footer">
+                <form class="chat-input-form" id="chatInputForm">
+                    <textarea 
+                        class="chat-input-field" 
+                        id="chatInputField" 
+                        placeholder="Type your message..." 
+                        rows="1"
+                        aria-label="Your message"></textarea>
+                    <button type="submit" class="chat-send-btn" id="chatSendBtn" aria-label="Send message">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                        </svg>
+                    </button>
+                </form>
+                <div class="chat-branding-note">
+                    Powered by <strong>ApexCloud AI</strong> • Instant Customer Care
+                </div>
+            </div>
+        </section>
+
+        <!-- Floating Left-Corner Launcher Button -->
+        <button class="bot-launcher-btn" id="botLauncherBtn" aria-label="Open customer support chat">
+            <span class="bot-launcher-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+                </svg>
+            </span>
+            <span class="bot-close-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+            </span>
+            <!-- Unread notification badge -->
+            <span class="bot-unread-badge" id="botUnreadBadge">1</span>
+        </button>
+
+    </aside>
+
+    <script src="script.js"></script>
+</body>
+</html>
