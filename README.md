@@ -43,3 +43,24 @@ The server will start at **http://localhost:5000/** and serve both the frontend 
 | `GET` | `/api/health` | Returns backend status and timestamp |
 | `POST` | `/api/chat` | Send `{ "message": "...", "session_id": "..." }` to get AI response & quick chips |
 | `GET` | `/api/orders/<id>` | Lookup order delivery details by Order ID |
+
+---
+
+## 🌐 Deployment Guide
+
+### Option 1: Deploy on Render (Recommended for Python full-stack)
+1. Push your repository to GitHub.
+2. Sign in to [render.com](https://render.com) and click **New + > Web Service**.
+3. Connect your repository `chat-bot1`.
+4. Render will auto-detect settings, or configure:
+   - **Environment**: `Python`
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `gunicorn app:app`
+5. Click **Deploy Web Service**!
+
+### Option 2: Deploy on Vercel
+1. Push your repository to GitHub.
+2. Go to [vercel.com](https://vercel.com) and click **Add New > Project**.
+3. Import `chat-bot1`.
+4. Vercel automatically detects `vercel.json` and `api/index.py`.
+5. Click **Deploy**!
