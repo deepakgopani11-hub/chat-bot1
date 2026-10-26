@@ -119,6 +119,77 @@ FAQ_RULES = [
     }
 ]
 
+# ==============================================================================
+# OPTIONAL .ENV LOADER & GEMINI API INTEGRATION
+# ==============================================================================
+
+def load_env_file():
+    """Lightweight built-in loader for .env file (zero extra dependencies)."""
+    env_path = os.path.join(os.path.dirname(__file__), '.env')
+    if os.path.exists(env_path):
+        try:
+            with open(env_path, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith('#') and '=' in line:
+                        k, v = line.split('=', 1)
+                        k = k.strip()
+                        v = v.strip().strip('"').strip("'")
+                        if k and k not in os.environ:
+                            os.environ[k] = v
+        except Exception:
+            pass
+
+load_env_file()
+
+def call_gemini_api(prompt: str) -> str:
+    """
+    Call Google Gemini 1.5 Flash if GEMINI_API_KEY is configured.
+    Uses standard library urllib (zero extra packages needed).
+    """
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key or api_key.strip() == "" or "your_gemini_api_key_here" in api_key:
+        return None
+
+    import urllib.request
+    import urllib.error
+
+    system_instruction = (
+        "You are Nova, an intelligent, polite, and helpful AI customer support agent for ApexCloud. "
+        "Keep answers concise, clear, and actionable (maximum 3-4 sentences). Use markdown formatting."
+    )
+
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+    payload = {
+        "system_instruction": {
+            "parts": [{"text": system_instruction}]
+        },
+        "contents": [
+            {"role": "user", "parts": [{"text": prompt}]}
+        ],
+        "generationConfig": {
+            "temperature": 0.7,
+            "maxOutputTokens": 350
+        }
+    }
+
+    try:
+        req = urllib.request.Request(
+            url,
+            data=json.dumps(payload).encode('utf-8'),
+            headers={'Content-Type': 'application/json'}
+        )
+        with urllib.request.urlopen(req, timeout=6) as response:
+            res_data = json.loads(response.read().decode('utf-8'))
+            candidates = res_data.get('candidates', [])
+            if candidates and 'content' in candidates[0]:
+                parts = candidates[0]['content'].get('parts', [])
+                if parts and 'text' in parts[0]:
+                    return parts[0]['text'].strip()
+    except Exception as e:
+        print(f"ℹ️ Gemini API call skipped or errored: {e}")
+        return None
+
 # Simple in-memory session store
 SESSIONS: Dict[str, List[Dict[str, Any]]] = {}
 
@@ -178,11 +249,22 @@ def process_message(user_message: str, session_id: str = "default") -> Dict[str,
                 SESSIONS[session_id].append({"sender": "bot", "text": reply, "time": datetime.utcnow().isoformat()})
                 return result
 
-    # Fallback response for unhandled questions
+    # If Gemini API is available, generate dynamic AI response
+    gemini_reply = call_gemini_api(text)
+    if gemini_reply:
+        result = {
+            "reply": gemini_reply,
+            "chips": ["📦 Track Order", "💳 Pricing & Plans", "👤 Talk to Live Agent"],
+            "intent": "gemini_ai"
+        }
+        SESSIONS[session_id].append({"sender": "bot", "text": gemini_reply, "time": datetime.utcnow().isoformat()})
+        return result
+
+    # Fallback response for unhandled questions (when Gemini API key is not configured)
     fallback_reply = (
-        f"Thank you for reaching out! I've logged your query regarding: *\"{text}\"*.\n\n"
-        "I'm continuously learning. You can select one of the popular topics below, "
-        "or ask to connect with a live agent for specialized help."
+        f"Thank you for reaching out! I've noted: *\"{text}\"*.\n\n"
+        "How can I assist you further? Choose one of the popular topics below, "
+        "or request to connect directly with a live support agent."
     )
     fallback_chips = ["📦 Track Order", "💳 Pricing & Plans", "🛠️ Technical Help", "👤 Talk to Live Agent"]
     
