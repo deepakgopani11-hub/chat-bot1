@@ -1,12 +1,12 @@
 # 🤖 Customer Support AI Chatbot
 
-A modern, responsive customer support chatbot widget designed for website integration. Anchored in the **bottom-left corner** with floating trigger badge, typing indicators, quick reply chips, Web Audio sound effects, and a **Python backend** server.
+A modern, responsive customer support chatbot widget designed for website integration. Anchored in the **bottom-right corner** with floating trigger badge, typing indicators, quick reply chips, Web Audio sound effects, and a **Python backend** server.
 
 ---
 
 ## 🚀 Features
 
-- **Bottom-Left Floating Widget**: Unobtrusive launcher button with pulsing badge, unread counter, and smooth open/close micro-animations.
+- **Bottom-Right Floating Widget**: Unobtrusive launcher button with pulsing badge, unread counter, and smooth open/close micro-animations.
 - **Python Backend (`app.py`)**:
   - Built with **Flask** and **Flask-CORS** (with zero-dependency fallback to Python standard library).
   - Intent recognition for customer queries: greetings, pricing plans, order tracking, returns, live agent queue, and FAQs.
