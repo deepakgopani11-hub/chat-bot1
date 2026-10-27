@@ -1,23 +1,23 @@
 :root {
-    --primary: #6366f1;
-    --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
-    --primary-hover: #4f46e5;
-    --bg-dark: #090d16;
-    --card-bg: rgba(17, 24, 39, 0.95);
-    --card-border: rgba(255, 255, 255, 0.1);
-    --bot-bubble: rgba(30, 41, 59, 0.9);
-    --user-bubble: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --text-subtle: #64748b;
+    --primary: #d97706;
+    --primary-gradient: linear-gradient(135deg, #d97706 0%, #b45309 45%, #78350f 100%);
+    --primary-hover: #b45309;
+    --bg-dark: #0a0604;
+    --card-bg: rgba(22, 14, 10, 0.96);
+    --card-border: rgba(245, 158, 11, 0.2);
+    --bot-bubble: rgba(36, 21, 15, 0.95);
+    --user-bubble: linear-gradient(135deg, #b45309 0%, #78350f 100%);
+    --text-main: #fdfbf7;
+    --text-muted: #d6c7b9;
+    --text-subtle: #9c8a79;
     --online-green: #10b981;
-    --accent-glow: rgba(99, 102, 241, 0.35);
+    --accent-glow: rgba(217, 119, 6, 0.35);
     --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     --radius-lg: 20px;
     --radius-md: 14px;
     --radius-sm: 8px;
-    --shadow-window: 0 20px 45px -10px rgba(0, 0, 0, 0.6), 0 0 30px rgba(99, 102, 241, 0.2);
-    --shadow-button: 0 10px 25px -5px rgba(99, 102, 241, 0.5);
+    --shadow-window: 0 20px 45px -10px rgba(0, 0, 0, 0.8), 0 0 35px rgba(217, 119, 6, 0.22);
+    --shadow-button: 0 10px 25px -5px rgba(217, 119, 6, 0.55);
     --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -44,7 +44,7 @@ body {
     left: 20%;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(217, 119, 6, 0.16) 0%, transparent 70%);
     filter: blur(60px);
     pointer-events: none;
     z-index: 0;
@@ -56,7 +56,7 @@ body {
     right: -100px;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(146, 64, 14, 0.2) 0%, transparent 70%);
     filter: blur(70px);
     pointer-events: none;
     z-index: 0;

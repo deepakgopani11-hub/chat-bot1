@@ -13,109 +13,161 @@ except ImportError:
     FLASK_AVAILABLE = False
 
 # ==============================================================================
-# KNOWLEDGE BASE & SIMULATED DATABASE
+# MANAM CHOCOLATE - KNOWLEDGE BASE & SIMULATED ORDER DATABASE
 # ==============================================================================
 
 MOCK_ORDERS = {
-    "ORD-88219": {
-        "status": "In Transit 🚚",
-        "carrier": "FedEx Priority",
-        "destination": "New York, NY",
-        "estimated_delivery": "Tomorrow by 4:00 PM",
-        "items": ["1x ApexCloud AI Enterprise Hub", "1x Dev Kit"]
+    "MNM-40291": {
+        "status": "In Transit with Cold-Pack 🚚❄️",
+        "carrier": "BlueDart Apex Cold-Chain",
+        "destination": "Bandra West, Mumbai",
+        "estimated_delivery": "Tomorrow by 2:00 PM",
+        "packaging": "Insulated Thermal Box with Food-Grade Gel Ice Packs",
+        "items": [
+            "1x Indian Origin Tablet No. 6 (66% Dark - Silver Winner)",
+            "1x The Bonbon Collection (12 Assorted Pieces)"
+        ]
     },
-    "ORD-10423": {
-        "status": "Delivered ✅",
-        "carrier": "UPS Ground",
-        "destination": "San Francisco, CA",
-        "delivered_date": "Yesterday, 2:15 PM",
-        "items": ["1x ApexCloud Starter Bundle"]
+    "MNM-88219": {
+        "status": "Out for Delivery Today 🚚✅",
+        "carrier": "Delhivery Express Temperature-Safe",
+        "destination": "Indiranagar, Bengaluru",
+        "estimated_delivery": "Today by 5:30 PM",
+        "packaging": "Insulated Thermal Box with Food-Grade Gel Ice Packs",
+        "items": [
+            "2x Chocolate Lab Tablet (Pedda Rasalu Mango & Dark Chocolate)",
+            "1x Roasted Hazelnut Dragees (150g)"
+        ]
     },
-    "ORD-99301": {
-        "status": "Processing in Warehouse 📦",
-        "carrier": "DHL Express",
-        "destination": "Austin, TX",
-        "estimated_delivery": "Thursday, Oct 29",
-        "items": ["2x AI Accelerator Units"]
+    "MNM-10423": {
+        "status": "Freshly Handcrafted at Karkhana 🍫✨",
+        "carrier": "Awaiting Courier Handover",
+        "destination": "Jubilee Hills, Hyderabad (Local Express)",
+        "estimated_delivery": "Today by 7:00 PM",
+        "packaging": "Signature Manam Handcrafted Box",
+        "items": [
+            "1x Single Farm Tablet (80% Dark - GVS Prasad Farm)",
+            "1x Single-Origin Hot Chocolate Drinking Blend (250g)"
+        ]
     }
 }
 
 FAQ_RULES = [
     {
         "intent": "greeting",
-        "keywords": ["hi", "hello", "hey", "greetings", "good morning", "good evening", "howdy"],
+        "keywords": ["hi", "hello", "hey", "namaste", "greetings", "good morning", "good evening", "welcome"],
         "reply": (
-            "Hello there! 👋 Welcome to ApexCloud Customer Support. "
-            "I'm Nova, your AI assistant powered by our Python backend.\n\n"
-            "How can I help you today?"
+            "Namaste & Welcome to **Manam Chocolate**! 🍫✨\n\n"
+            "I am your **Craft Chocolate Concierge**. We are farmers, fermenters, chocolate makers, and chocolatiers "
+            "crafting a new Indian Craft Chocolate™ experience from the terroir of West Godavari, Andhra Pradesh.\n\n"
+            "How may I delight your chocolate palate today?"
         ),
-        "chips": ["📦 Track Order", "💳 Pricing & Plans", "🛠️ Technical Help", "👤 Talk to Live Agent"]
+        "chips": ["🍫 Tablet Library", "🏛️ Visit Karkhana", "📦 Track Order", "🎁 Gifting & Hampers", "☕ Café & Menu"]
     },
     {
-        "intent": "pricing",
-        "keywords": ["price", "pricing", "plan", "plans", "cost", "subscription", "tier", "upgrade", "discount"],
+        "intent": "tablets_products",
+        "keywords": ["tablet", "tablets", "bars", "dark chocolate", "milk chocolate", "flavor", "flavors", "variety", "types", "single origin"],
         "reply": (
-            "Here are our flexible plans:\n\n"
-            "• **Starter ($19/mo)**: Ideal for small projects & teams (up to 5 users).\n"
-            "• **Pro ($49/mo)**: Full API access, priority speed & advanced analytics.\n"
-            "• **Enterprise (Custom)**: Dedicated 24/7 account manager & SLA guarantee.\n\n"
-            "✨ All plans include a **14-day free trial** with zero credit card commitment."
+            "Our award-winning **Craft Chocolate Tablet Collection** celebrates the nuances of Indian cacao:\n\n"
+            "• **Single-Origin Tablets**: 60% Dark Milk, 66% Dark (Silver Medalist), 69% Dark, 80% Dark, and 100% Pure Dark (₹375–₹495, 80g).\n"
+            "• **Single Farm Series**: Pure expressions from individual partner farms like the pioneer *GVS Prasad Farm* in West Godavari.\n"
+            "• **Chocolate Lab Editions**: Limited-batch pairings with regional fruits & spices, including *Pedda Rasalu Mango* and *Chakkarakeli Banana* (₹495–₹675).\n\n"
+            "All our pure dark chocolates are 100% vegan, dairy-free, and bean-to-bar!"
         ),
-        "chips": ["Start Free Trial", "Compare Features", "Talk to Sales"]
+        "chips": ["66% Dark (Silver Winner)", "Mango & Banana Lab", "100% Pure Dark", "Bonbon Collection"]
+    },
+    {
+        "intent": "karkhana_cafe",
+        "keywords": ["karkhana", "cafe", "store", "hyderabad", "visit", "address", "location", "timings", "banjara hills", "experience"],
+        "reply": (
+            "**Manam Chocolate Karkhana** is our 10,000 sq. ft. flagship chocolate sanctuary in Hyderabad! 🏛️✨\n\n"
+            "📍 **Address**: Road No. 12, Banjara Hills, Hyderabad, Telangana 500034.\n"
+            "🕒 **Hours**: Open every day, 10:00 AM – 11:00 PM IST.\n\n"
+            "**What to experience**:\n"
+            "• **Live Factory Floor**: Watch cacao beans being roasted, winnowed, and conched.\n"
+            "• **The Chocolate Lab**: Custom-make your very own signature chocolate tablet with your choice of inclusions.\n"
+            "• **All-Day Café**: Specialty single-origin hot chocolate, cacao mocktails, entremets, and savory sourdoughs.\n\n"
+            "We also have the **Manam Beverage Bar** at Sattva Knowledge City, Hitec City!"
+        ),
+        "chips": ["Get Directions", "Chocolate Lab Workshops", "Café Highlights", "Beverage Bar"]
+    },
+    {
+        "intent": "cacao_farmers_origin",
+        "keywords": ["cacao", "farmer", "farmers", "founder", "origin", "west godavari", "fermentery", "chaitanya", "story", "about"],
+        "reply": (
+            "**The Manam Story & Indian Cacao Heritage** 🇮🇳🌱\n\n"
+            "• **Founder**: Founded by entrepreneur **Chaitanya Muppala** to bring world recognition to Indian craft cacao.\n"
+            "• **Our Farmers**: We partner directly with 100+ progressive farmer-members in **West Godavari**, Andhra Pradesh, where cacao thrives alongside coconut, banana, and black pepper.\n"
+            "• **Distinct Origins Fermentery**: We established a specialized 5-step box fermentation and shade-drying facility in Tadikalapudi to unlock fine-flavour notes rarely seen in mass chocolate.\n"
+            "• **Global Acclaim**: Honored with multiple medals at the **Academy of Chocolate Awards (London)** and the **International Chocolate Awards**!"
+        ),
+        "chips": ["West Godavari Terroir", "Fermentation Art", "Awards & Honors"]
+    },
+    {
+        "intent": "gifting_bonbons",
+        "keywords": ["gift", "gifting", "hamper", "hampers", "bonbon", "bonbons", "box", "truffles", "wedding", "corporate", "barks"],
+        "reply": (
+            "Discover our luxury **Gifting & Indulgence Collections** 🎁:\n\n"
+            "• **The Bonbon Collection**: Hand-painted edible jewels layered with single-origin ganaches, fruit compotes, and nut pralines (Boxes of 6, 12, and 24 pcs: ₹1,000 – ₹2,500+).\n"
+            "• **Snacking Barks & Dragees**: Chocolate barks, caramel clusters, enrobed hazelnuts, and cacao nibs (₹350 – ₹950).\n"
+            "• **Custom Hampers & Corporate Gifting**: Bespoke wooden keepsake boxes with personalized sleeve messaging for weddings, festivals, and milestones."
+        ),
+        "chips": ["Assorted Bonbon Box", "Corporate Inquiry", "Snacking Barks", "Custom Hampers"]
+    },
+    {
+        "intent": "shipping_melt_guarantee",
+        "keywords": ["shipping", "delivery", "melt", "melting", "cold pack", "packaging", "temperature", "courier", "pincode", "india"],
+        "reply": (
+            "**Pan-India Melt-Free Shipping Guarantee** 🚚❄️\n\n"
+            "• **Temperature-Controlled Packaging**: Every order is packed in custom insulated thermal foam boxes with food-grade frozen gel ice packs to ensure your chocolate stays crisp and cool.\n"
+            "• **Coverage**: We ship to all serviceable pincodes across India.\n"
+            "• **Dispatch Timeline**: Orders are dispatched within 24–48 hours; delivery takes 2–4 business days.\n"
+            "• **Hyderabad Local**: Available for same-day pickup at Banjara Hills Karkhana or via Swiggy/Zomato."
+        ),
+        "chips": ["Track My Order", "Check Pincode", "Damaged Item Policy"]
+    },
+    {
+        "intent": "storage_guide",
+        "keywords": ["store", "storage", "refrigerator", "fridge", "temperature", "expire", "expiry", "shelf life"],
+        "reply": (
+            "**How to Store Craft Chocolate** 🌡️🍫\n\n"
+            "• **Ideal Range**: Keep in a cool, dry place between **16°C and 20°C** (humidity under 60%), away from strong odors and direct sunlight.\n"
+            "• **Summer Tip**: If your room temperature exceeds 24°C, store it in an airtight container in the vegetable crisper. Allow it to rest at room temperature for **10 minutes** before tasting so the cacao butter melts smoothly on your palate!\n"
+            "• **Shelf Life**: Pure dark tablets stay fresh for 12 months; fresh cream bonbons are best enjoyed within 2–3 weeks."
+        ),
+        "chips": ["Tasting Guide", "Tablet Library", "Bonbon Care"]
+    },
+    {
+        "intent": "vegan_dietary",
+        "keywords": ["vegan", "dairy free", "gluten free", "sugar free", "diet", "pure dark", "healthy", "calories"],
+        "reply": (
+            "**Dietary & Allergen Information** 🌿\n\n"
+            "• **100% Vegan & Dairy-Free**: All our Dark Chocolate Tablets (60%, 66%, 69%, 80%, and 100% Pure Dark) contain only cacao and raw unrefined cane sugar—zero dairy or animal products!\n"
+            "• **Gluten-Free**: Most plain tablets, snacking cacao nibs, and dragees are gluten-free (except inclusion items with toasted sourdough or biscuit pieces).\n"
+            "• **Zero Added Sugar**: Our **Tablet No. 8 (100% Pure Cacao)** contains 0g added sugar—pure roasted West Godavari cacao."
+        ),
+        "chips": ["100% Pure Dark (Sugar-Free)", "Vegan Tablets", "View Ingredients"]
+    },
+    {
+        "intent": "contact_support",
+        "keywords": ["contact", "email", "phone", "call", "customer care", "help", "support", "reach"],
+        "reply": (
+            "Our **Manam Chocolate Concierge** is here for you:\n\n"
+            "📞 **Customer Care Phone**: +91 73311 00776\n"
+            "🕒 **Care Hours**: Monday to Saturday, 10:00 AM – 7:00 PM IST\n"
+            "📧 **Email**: care@manamchocolate.com\n"
+            "🏛️ **Flagship**: Manam Chocolate Karkhana, Road No. 12, Banjara Hills, Hyderabad 500034."
+        ),
+        "chips": ["Call Support", "Send Email", "Visit Karkhana", "Track Order"]
     },
     {
         "intent": "order_tracking",
-        "keywords": ["order", "track", "tracking", "shipment", "shipping", "package", "delivery"],
+        "keywords": ["order", "track", "tracking", "shipment", "package", "status", "where is my order"],
         "reply": (
-            "I can track your order in real-time! 📦\n\n"
-            "Please provide your **Order ID** (for example: `#ORD-88219`, `#ORD-10423`, or `#ORD-99301`)."
+            "I can track your Manam Chocolate shipment! 📦🍫\n\n"
+            "Please provide your **Order ID** (for example: `#MNM-40291`, `#MNM-88219`, or `#MNM-10423`)."
         ),
-        "chips": ["#ORD-88219", "#ORD-10423", "#ORD-99301"]
-    },
-    {
-        "intent": "live_agent",
-        "keywords": ["human", "agent", "representative", "person", "support person", "specialist", "call"],
-        "reply": (
-            "Connecting you to our live support queue... 🔄\n\n"
-            "🟢 **Sarah (Tier 2 Technical Specialist)** is next in queue.\n"
-            "Estimated wait time: **under 2 minutes**.\n\n"
-            "Please leave a brief summary of what you need help with so she can assist you immediately."
-        ),
-        "chips": ["Billing Inquiry", "Technical Bug", "Cancel Subscription"]
-    },
-    {
-        "intent": "refund",
-        "keywords": ["refund", "return", "money back", "cancel plan", "guarantee"],
-        "reply": (
-            "We offer a **30-day, no-questions-asked 100% money-back guarantee**.\n\n"
-            "To request a refund:\n"
-            "1. Visit your account dashboard under **Billing & Subscriptions**.\n"
-            "2. Click **'Request Refund'** on the active invoice.\n"
-            "3. Refunds are credited back to your original payment method in 3–5 business days."
-        ),
-        "chips": ["Request Refund Ticket", "Return Policy", "Cancel Plan"]
-    },
-    {
-        "intent": "contact",
-        "keywords": ["contact", "email", "phone", "hours", "office", "reach", "hotline"],
-        "reply": (
-            "You can reach our team anytime:\n\n"
-            "📧 **Email**: support@apexcloud.io\n"
-            "📞 **Toll-Free Phone**: +1 (800) 555-0199\n"
-            "🕒 **Operating Hours**: 24/7/365 global coverage."
-        ),
-        "chips": ["Send Email", "Schedule Call", "System Status"]
-    },
-    {
-        "intent": "technical",
-        "keywords": ["bug", "error", "broken", "login", "password", "crash", "api", "token", "issue"],
-        "reply": (
-            "For technical troubleshooting:\n\n"
-            "1. **Password reset**: Click 'Forgot Password' on the login screen to receive a secure reset link.\n"
-            "2. **API Keys**: Ensure your `Authorization: Bearer <TOKEN>` header is configured.\n"
-            "3. **Status**: Check our real-time system health monitor at [status.apexcloud.io](#)."
-        ),
-        "chips": ["Reset Password", "View API Docs", "System Health"]
+        "chips": ["#MNM-40291", "#MNM-88219", "#MNM-10423"]
     }
 ]
 
@@ -146,6 +198,7 @@ def call_gemini_api(prompt: str) -> str:
     """
     Call Google Gemini 1.5 Flash if GEMINI_API_KEY is configured.
     Uses standard library urllib (zero extra packages needed).
+    Trained specifically on Manam Chocolate craft knowledge!
     """
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key or api_key.strip() == "" or "your_gemini_api_key_here" in api_key:
@@ -155,8 +208,19 @@ def call_gemini_api(prompt: str) -> str:
     import urllib.error
 
     system_instruction = (
-        "You are Nova, an intelligent, polite, and helpful AI customer support agent for ApexCloud. "
-        "Keep answers concise, clear, and actionable (maximum 3-4 sentences). Use markdown formatting."
+        "You are the Manam Chocolate Concierge, representing Manam Chocolate - Indian Craft Chocolate™ (manamchocolate.com). "
+        "You embody artisanal luxury, warmth, and culinary passion. "
+        "Key knowledge:\n"
+        "- Founder: Chaitanya Muppala.\n"
+        "- Cacao Sourcing: 100+ partner farmers in West Godavari, Andhra Pradesh, grown with coconut, banana, pepper.\n"
+        "- Fermentery: Distinct Origins in Tadikalapudi running 5-step box fermentation.\n"
+        "- Experience Center: Manam Chocolate Karkhana on Road No. 12, Banjara Hills, Hyderabad (10,000 sq.ft live factory, chocolate lab, café).\n"
+        "- Products: Single-Origin Tablets (60% to 100% dark), Single Farm, Chocolate Lab (Mango, Banana), Bonbons, Snacking Barks, Dragees, Hampers.\n"
+        "- Awards: Academy of Chocolate Awards (London), International Chocolate Awards.\n"
+        "- Shipping: Pan-India with temperature-controlled insulated packaging & gel ice packs.\n"
+        "- Storage: 16°C–20°C in cool dry place.\n"
+        "- Contact: care@manamchocolate.com | +91 73311 00776.\n"
+        "Keep answers concise, delightful, and helpful (maximum 3-4 sentences). Use markdown formatting."
     )
 
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
@@ -207,25 +271,28 @@ def process_message(user_message: str, session_id: str = "default") -> Dict[str,
         SESSIONS[session_id] = []
     SESSIONS[session_id].append({"sender": "user", "text": text, "time": datetime.utcnow().isoformat()})
 
-    # Check for specific Order ID pattern (e.g., ORD-88219 or #ORD-88219)
-    order_match = re.search(r"ORD-?\d{5}", normalized, re.IGNORECASE)
+    # Check for specific Order ID pattern (e.g., MNM-40291 or #MNM-40291, or legacy ORD)
+    order_match = re.search(r"(?:MNM|ORD)-?\d{5}", normalized, re.IGNORECASE)
     if order_match:
-        matched_id = order_match.group(0).upper()
-        if not matched_id.startswith("ORD-"):
-            matched_id = "ORD-" + matched_id.replace("ORD", "")
+        raw_match = order_match.group(0).upper().replace("-", "")
+        # Format as MNM-XXXXX or ORD-XXXXX
+        prefix = "MNM-" if "MNM" in raw_match else "ORD-"
+        matched_id = prefix + re.sub(r"[^\d]", "", raw_match)
         
-        if matched_id in MOCK_ORDERS:
-            info = MOCK_ORDERS[matched_id]
-            items_str = ", ".join(info.get("items", []))
+        # Check in MOCK_ORDERS (check both MNM and ORD keys)
+        info = MOCK_ORDERS.get(matched_id) or MOCK_ORDERS.get("MNM-" + re.sub(r"[^\d]", "", raw_match))
+        if info:
+            items_str = "\n  • " + "\n  • ".join(info.get("items", []))
             reply = (
-                f"📦 **Order Details for #{matched_id}**\n\n"
+                f"🍫📦 **Manam Order Tracking — #{matched_id}**\n\n"
                 f"• **Status**: {info['status']}\n"
                 f"• **Carrier**: {info['carrier']}\n"
+                f"• **Packaging**: {info.get('packaging', 'Insulated Cold-Pack')}\n"
                 f"• **Destination**: {info['destination']}\n"
-                f"• **Expected Delivery**: {info.get('estimated_delivery') or info.get('delivered_date')}\n"
-                f"• **Items**: {items_str}"
+                f"• **Delivery ETA**: {info.get('estimated_delivery')}\n\n"
+                f"**Items in this box**:{items_str}"
             )
-            chips = ["Track Another Order", "Change Delivery Address", "Need Help with Items"]
+            chips = ["Track Another Order", "Melt-Free Guarantee", "Visit Karkhana"]
             result = {
                 "reply": reply,
                 "chips": chips,
@@ -235,7 +302,7 @@ def process_message(user_message: str, session_id: str = "default") -> Dict[str,
             SESSIONS[session_id].append({"sender": "bot", "text": reply, "time": datetime.utcnow().isoformat()})
             return result
 
-    # Match predefined FAQ rules
+    # Match predefined Manam Chocolate FAQ rules
     for rule in FAQ_RULES:
         for kw in rule["keywords"]:
             if re.search(r"\b" + re.escape(kw) + r"\b", normalized) or kw in normalized:
@@ -249,24 +316,24 @@ def process_message(user_message: str, session_id: str = "default") -> Dict[str,
                 SESSIONS[session_id].append({"sender": "bot", "text": reply, "time": datetime.utcnow().isoformat()})
                 return result
 
-    # If Gemini API is available, generate dynamic AI response
+    # If Gemini API is available, generate dynamic AI response with Manam knowledge
     gemini_reply = call_gemini_api(text)
     if gemini_reply:
         result = {
             "reply": gemini_reply,
-            "chips": ["📦 Track Order", "💳 Pricing & Plans", "👤 Talk to Live Agent"],
+            "chips": ["🍫 Tablet Library", "🏛️ Visit Karkhana", "📦 Track Order", "🎁 Gifting & Hampers"],
             "intent": "gemini_ai"
         }
         SESSIONS[session_id].append({"sender": "bot", "text": gemini_reply, "time": datetime.utcnow().isoformat()})
         return result
 
-    # Fallback response for unhandled questions (when Gemini API key is not configured)
+    # Fallback response for unhandled questions
     fallback_reply = (
-        f"Thank you for reaching out! I've noted: *\"{text}\"*.\n\n"
-        "How can I assist you further? Choose one of the popular topics below, "
-        "or request to connect directly with a live support agent."
+        f"Thank you for reaching out to **Manam Chocolate**! 🍫✨\n\n"
+        f"Regarding: *\"{text}\"*, I would love to guide you. "
+        "Explore our craft cacao tablets, plan a visit to our Hyderabad Karkhana, or check your shipment below:"
     )
-    fallback_chips = ["📦 Track Order", "💳 Pricing & Plans", "🛠️ Technical Help", "👤 Talk to Live Agent"]
+    fallback_chips = ["🍫 Tablet Library", "🏛️ Visit Karkhana", "📦 Track Order", "🎁 Gifting & Hampers", "📞 Contact Care"]
     
     result = {
         "reply": fallback_reply,
@@ -299,6 +366,7 @@ if FLASK_AVAILABLE:
         """Health check endpoint"""
         return jsonify({
             "status": "online",
+            "brand": "Manam Chocolate",
             "backend": "python-flask",
             "timestamp": datetime.utcnow().isoformat()
         })
@@ -324,12 +392,12 @@ if FLASK_AVAILABLE:
     @app.route('/api/orders/<order_id>', methods=['GET'])
     def order_endpoint(order_id):
         """Get order status directly by ID"""
-        order_key = order_id.upper().strip()
-        if not order_key.startswith("ORD-"):
-            order_key = "ORD-" + order_key.replace("ORD", "")
+        clean_id = order_id.upper().strip()
+        if not clean_id.startswith("MNM-") and not clean_id.startswith("ORD-"):
+            clean_id = "MNM-" + clean_id
         
-        if order_key in MOCK_ORDERS:
-            return jsonify({"status": "found", "order": MOCK_ORDERS[order_key]})
+        if clean_id in MOCK_ORDERS:
+            return jsonify({"status": "found", "order": MOCK_ORDERS[clean_id]})
         return jsonify({"status": "not_found", "message": f"Order {order_id} not found."}), 404
 
 # ==============================================================================
@@ -361,6 +429,7 @@ def run_builtin_server(port=5000):
                 self.end_headers()
                 response = {
                     "status": "online",
+                    "brand": "Manam Chocolate",
                     "backend": "python-builtin-http",
                     "timestamp": datetime.utcnow().isoformat()
                 }
@@ -405,7 +474,7 @@ def run_builtin_server(port=5000):
 
     server_address = ('0.0.0.0', port)
     httpd = HTTPServer(server_address, BotHTTPHandler)
-    print(f"🚀 Customer Support Bot Python Server running at http://localhost:{port}/")
+    print(f"🍫 Manam Chocolate Concierge Python Server running at http://localhost:{port}/")
     print(f"📡 API endpoint: http://localhost:{port}/api/chat")
     httpd.serve_forever()
 
@@ -416,7 +485,7 @@ def run_builtin_server(port=5000):
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     if FLASK_AVAILABLE:
-        print(f"🚀 Customer Support Bot Flask Server running at http://localhost:{port}/")
+        print(f"🍫 Manam Chocolate Concierge Flask Server running at http://localhost:{port}/")
         print(f"📡 API endpoint: http://localhost:{port}/api/chat")
         app.run(host='0.0.0.0', port=port, debug=True)
     else:

@@ -22,44 +22,59 @@ document.addEventListener('DOMContentLoaded', () => {
     // State Variables
     let soundEnabled = true;
     let isTyping = false;
-    const STORAGE_KEY = 'chat_bot_history_v1';
+    const STORAGE_KEY = 'manam_chocolate_chat_v2';
 
-    // Knowledge Base / Support FAQ database
+    // Manam Chocolate Knowledge Base & FAQ Database
     const supportKnowledge = [
         {
-            keywords: ['hi', 'hello', 'hey', 'greetings', 'good morning', 'good evening', 'start'],
-            reply: "Hello there! 👋 Welcome to Customer Support. How can I assist you with your project or account today?",
-            chips: ["📦 Track Order", "💳 Pricing & Plans", "🛠️ Technical Help", "👤 Talk to Human"]
+            keywords: ['hi', 'hello', 'hey', 'namaste', 'greetings', 'good morning', 'good evening', 'start'],
+            reply: "Namaste & Welcome to **Manam Chocolate**! 🍫✨\n\nI am your **Craft Chocolate Concierge**. We are farmers, fermenters, chocolate makers, and chocolatiers crafting a new Indian Craft Chocolate™ experience from West Godavari cacao.\n\nHow may I delight your chocolate palate today?",
+            chips: ["🍫 Tablet Library", "🏛️ Visit Karkhana", "📦 Track Order", "🎁 Gifting & Hampers", "☕ Café & Menu"]
         },
         {
-            keywords: ['price', 'pricing', 'cost', 'plan', 'plans', 'subscription', 'upgrade'],
-            reply: "We offer 3 flexible plans:\n\n• **Starter**: $19/mo (Perfect for small teams)\n• **Pro**: $49/mo (Advanced analytics & AI tools)\n• **Enterprise**: Custom solutions with 24/7 dedicated support.\n\nAll plans include a **14-day free trial** with no credit card required!",
-            chips: ["Start Free Trial", "Compare Features", "👤 Talk to Sales"]
+            keywords: ['tablet', 'tablets', 'bars', 'dark', 'milk', 'flavor', 'flavors', 'variety', 'single origin', 'price', 'pricing', 'cost'],
+            reply: "Our award-winning **Craft Chocolate Tablet Collection** celebrates the nuances of Indian cacao:\n\n• **Single-Origin Tablets**: 60% Dark Milk, 66% Dark (Silver Medalist), 69% Dark, 80% Dark, and 100% Pure Dark (₹375–₹495, 80g).\n• **Single Farm Series**: Pure harvest expressions from partner farms like *GVS Prasad Farm* in West Godavari.\n• **Chocolate Lab Editions**: Experimental pairings with indigenous fruits like *Pedda Rasalu Mango* and *Chakkarakeli Banana* (₹495–₹675).\n\nAll our pure dark chocolates are 100% vegan, dairy-free, and bean-to-bar!",
+            chips: ["66% Dark (Silver Winner)", "Mango & Banana Lab", "100% Pure Dark", "Bonbons Collection"]
         },
         {
-            keywords: ['order', 'track', 'shipping', 'delivery', 'package', 'tracking'],
-            reply: "To track your shipment, please provide your **Order ID** (e.g., `#ORD-88219`). You can also view real-time shipping status directly in your account dashboard under **Billing & Orders**.",
-            chips: ["#ORD-88219", "Check Order Status", "Shipping Policy"]
+            keywords: ['karkhana', 'cafe', 'hyderabad', 'visit', 'address', 'location', 'timings', 'banjara hills'],
+            reply: "**Manam Chocolate Karkhana** is our 10,000 sq. ft. flagship chocolate sanctuary in Hyderabad! 🏛️✨\n\n📍 **Address**: Road No. 12, Banjara Hills, Hyderabad, Telangana 500034.\n🕒 **Hours**: Open everyday, 10:00 AM – 11:00 PM IST.\n\n**What to experience**:\n• **Live Factory Floor**: Watch cacao beans being roasted, winnowed, and conched.\n• **The Chocolate Lab**: Custom-craft your very own chocolate tablet with your choice of inclusions.\n• **All-Day Café**: Specialty single-origin hot chocolate, entremets, and savory sourdoughs.\n\nWe also have the **Manam Beverage Bar** at Sattva Knowledge City, Hitec City!",
+            chips: ["Get Directions", "Chocolate Lab Workshops", "Café Highlights"]
         },
         {
-            keywords: ['human', 'agent', 'representative', 'person', 'support team', 'call', 'talk to human'],
-            reply: "Connecting you to our live support queue... 🔄\n\n**Sarah (Tier 2 Support Specialist)** is available. Typical response time is **under 2 minutes**. Please describe your issue in detail so she can jump right in!",
-            chips: ["Billing Issue", "API Integration", "Cancel Order"]
+            keywords: ['cacao', 'farmer', 'farmers', 'founder', 'origin', 'west godavari', 'fermentery', 'chaitanya'],
+            reply: "**The Manam Story & Indian Cacao Heritage** 🇮🇳🌱\n\n• **Founder**: Founded by entrepreneur **Chaitanya Muppala** to bring world recognition to Indian craft cacao.\n• **Our Farmers**: We partner directly with 100+ farmer-members in **West Godavari**, Andhra Pradesh, intercropped with coconut, banana, and black pepper.\n• **Distinct Origins Fermentery**: Our state-of-the-art facility in Tadikalapudi runs scientific 5-step box fermentation to unlock fine-flavour fruitiness.\n• **Global Honors**: Awarded multiple medals at the **Academy of Chocolate Awards (London)** and International Chocolate Awards!",
+            chips: ["West Godavari Terroir", "Fermentation Art", "Awards & Honors"]
         },
         {
-            keywords: ['refund', 'return', 'cancel', 'money back', 'guarantee'],
-            reply: "We provide a **30-day 100% money-back guarantee**. If you're not satisfied, you can request an instant refund under **Account Settings > Billing > Request Refund** or let me file a ticket for you.",
-            chips: ["File Refund Ticket", "Return Policy", "Cancel Plan"]
+            keywords: ['gift', 'gifting', 'hamper', 'hampers', 'bonbon', 'bonbons', 'truffles', 'box', 'wedding', 'corporate', 'barks'],
+            reply: "Discover our luxury **Gifting & Indulgence Collections** 🎁:\n\n• **The Bonbon Collection**: Edible jewels layered with single-origin ganaches, fruit compotes, and nut pralines (Boxes of 6, 12, and 24 pcs: ₹1,000 – ₹2,500+).\n• **Snacking Barks & Dragees**: Chocolate barks, caramel clusters, enrobed hazelnuts, and cacao nibs (₹350 – ₹950).\n• **Custom Hampers & Corporate Gifting**: Bespoke wooden keepsake boxes with personalized sleeve messaging for weddings, festivals, and milestones.",
+            chips: ["Assorted Bonbon Box", "Corporate Inquiry", "Snacking Barks"]
         },
         {
-            keywords: ['contact', 'email', 'phone', 'hours', 'reach', 'address'],
-            reply: "You can reach us through several channels:\n\n📧 **Email**: support@example.com\n📞 **Phone**: +1 (800) 555-0199\n⏰ **Hours**: 24 hours a day, 7 days a week.",
-            chips: ["Send Email", "Schedule Call", "Live Chat"]
+            keywords: ['shipping', 'delivery', 'melt', 'melting', 'cold pack', 'packaging', 'temperature', 'pincode', 'india'],
+            reply: "**Pan-India Melt-Free Shipping Guarantee** 🚚❄️\n\n• **Temperature-Controlled Packaging**: Every order is packed in custom insulated thermal foam boxes with food-grade frozen gel ice packs to ensure your chocolate stays crisp and cool.\n• **Coverage**: We ship to all serviceable pincodes across India.\n• **Dispatch Timeline**: Orders are dispatched within 24–48 hours; delivery takes 2–4 business days.\n• **Hyderabad Local**: Available for same-day pickup at Banjara Hills Karkhana or via Swiggy/Zomato.",
+            chips: ["Track My Order", "Check Pincode", "Damaged Item Policy"]
         },
         {
-            keywords: ['bug', 'issue', 'broken', 'error', 'login', 'password', 'reset'],
-            reply: "Having trouble logging in or noticing a bug?\n\n1. You can reset your password using the **'Forgot Password'** link on the login page.\n2. Clear your browser cache and cookies.\n3. Check our [Status Page](#) for scheduled maintenance.",
-            chips: ["Reset Password", "System Status", "Report Bug"]
+            keywords: ['store', 'storage', 'refrigerator', 'fridge', 'temperature', 'expire', 'expiry', 'shelf life'],
+            reply: "**How to Store Craft Chocolate** 🌡️🍫\n\n• **Ideal Range**: Keep in a cool, dry place between **16°C and 20°C** (humidity under 60%), away from strong odors and direct sunlight.\n• **Summer Tip**: If your room exceeds 24°C, store it in an airtight container in the vegetable crisper. Allow it to rest at room temperature for **10 minutes** before tasting so the cacao butter melts smoothly on your palate!\n• **Shelf Life**: Pure dark tablets stay fresh for 12 months; fresh cream bonbons are best enjoyed within 2–3 weeks.",
+            chips: ["Tasting Guide", "Tablet Library", "Bonbon Care"]
+        },
+        {
+            keywords: ['vegan', 'dairy free', 'gluten free', 'sugar free', 'pure dark', 'healthy'],
+            reply: "**Dietary & Allergen Information** 🌿\n\n• **100% Vegan & Dairy-Free**: All our Dark Chocolate Tablets (60%, 66%, 69%, 80%, and 100% Pure Dark) contain only cacao and raw unrefined cane sugar—zero dairy or animal products!\n• **Gluten-Free**: Most plain tablets, snacking cacao nibs, and dragees are gluten-free (except inclusion items with toasted sourdough or biscuit pieces).\n• **Zero Added Sugar**: Our **Tablet No. 8 (100% Pure Cacao)** contains 0g added sugar—pure roasted West Godavari cacao.",
+            chips: ["100% Pure Dark (Sugar-Free)", "Vegan Tablets", "View Ingredients"]
+        },
+        {
+            keywords: ['contact', 'email', 'phone', 'call', 'care', 'customer service', 'help', 'support'],
+            reply: "Our **Manam Chocolate Concierge** is here for you:\n\n📞 **Customer Care Phone**: +91 73311 00776\n🕒 **Care Hours**: Monday to Saturday, 10:00 AM – 7:00 PM IST\n📧 **Email**: care@manamchocolate.com\n🏛️ **Flagship**: Manam Chocolate Karkhana, Road No. 12, Banjara Hills, Hyderabad 500034.",
+            chips: ["Call Support", "Send Email", "Visit Karkhana", "Track Order"]
+        },
+        {
+            keywords: ['order', 'track', 'tracking', 'package', 'status', 'where is my order'],
+            reply: "I can track your Manam Chocolate shipment! 📦🍫\n\nPlease provide your **Order ID** (for example: `#MNM-40291`, `#MNM-88219`, or `#MNM-10423`).",
+            chips: ["#MNM-40291", "#MNM-88219", "#MNM-10423"]
         }
     ];
 
@@ -129,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const isBot = sender === 'bot';
         const avatarIcon = isBot 
-            ? '🤖' 
+            ? '🍫' 
             : '👤';
 
         let chipsHtml = '';
@@ -181,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
         typingRow.className = 'message-row bot';
         typingRow.id = 'typingIndicator';
         typingRow.innerHTML = `
-            <div class="msg-mini-avatar" aria-hidden="true">🤖</div>
+            <div class="msg-mini-avatar" aria-hidden="true">🍫</div>
             <div class="msg-content-wrapper">
                 <div class="message-bubble typing-bubble">
                     <span class="typing-dot"></span>
@@ -368,8 +383,8 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         appendMessage(
             'bot',
-            "👋 Hi there! I'm Nova, your AI customer support assistant. How can we help you today?",
-            ["📦 Track Order", "💳 Pricing & Plans", "🛠️ Technical Help", "👤 Talk to Human"],
+            "Namaste & Welcome to **Manam Chocolate**! 🍫✨\n\nI am your **Craft Chocolate Concierge**. How may I assist you with our Indian Craft Chocolate tablets, Karkhana visits in Hyderabad, or gifting collections today?",
+            ["🍫 Tablet Library", "🏛️ Visit Karkhana", "📦 Track Order", "🎁 Gifting & Hampers", "☕ Café & Menu"],
             true
         );
     };
