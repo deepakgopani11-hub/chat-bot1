@@ -3,123 +3,443 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Manam Chocolate - Indian Craft Chocolate™. Farmers, fermenters, chocolate makers, and chocolatiers crafting award-winning single-origin tablets, bonbons, and gifting from West Godavari cacao with our flagship Karkhana in Hyderabad.">
-    <title>Manam Chocolate - Indian Craft Chocolate™ | Concierge</title>
-    <!-- Google Fonts: Plus Jakarta Sans -->
+    <meta name="description" content="KGK Group Real Estate (KGK Realty) — Transforming Spaces into Landmarks across Jaipur, Mumbai, and Delhi NCR. Ultra-luxury residential apartments, grade-A commercial hubs, and RERA-approved developments.">
+    <title>KGK Group Real Estate | KGK Realty — Transforming Spaces Into Landmarks</title>
+    <!-- Google Fonts: Plus Jakarta Sans & Cinzel (Architectural Luxury) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Ambient Cacao Warmth Mesh Gradients -->
+    <!-- Ambient Luxury Gold & Midnight Blue Mesh Glows -->
     <div class="bg-glow-top" aria-hidden="true"></div>
     <div class="bg-glow-bottom" aria-hidden="true"></div>
+    <div class="bg-pattern-overlay" aria-hidden="true"></div>
 
     <!-- Website Host Showcase Wrapper -->
     <div class="site-wrapper">
         <header>
             <nav class="navbar" aria-label="Main Navigation">
-                <a href="https://manamchocolate.com/" target="_blank" rel="noopener noreferrer" class="brand" id="brandLogo">
-                    <div class="brand-icon">🍫</div>
-                    <span>Manam Chocolate</span>
+                <a href="https://www.kgkgroup.com/our-business/real-estate" target="_blank" rel="noopener noreferrer" class="brand" id="brandLogo">
+                    <div class="brand-crest">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M3 21h18M5 21V7l7-4 7 4v14M9 10h1M14 10h1M9 14h1M14 14h1M9 18h1M14 18h1"/>
+                        </svg>
+                    </div>
+                    <div class="brand-text">
+                        <span class="brand-name">KGK GROUP</span>
+                        <span class="brand-sub">REAL ESTATE • KGK REALTY</span>
+                    </div>
                 </a>
                 <ul class="nav-links">
-                    <li><a href="#tablets">Tablets</a></li>
-                    <li><a href="#indulgence">Indulgence</a></li>
-                    <li><a href="#karkhana">Karkhana Café</a></li>
-                    <li><a href="#gifting">Gifting</a></li>
+                    <li><a href="#projects">Landmarks</a></li>
+                    <li><a href="#residential">Residential</a></li>
+                    <li><a href="#commercial">Commercial</a></li>
+                    <li><a href="#legacy">115+ Yr Legacy</a></li>
+                    <li><a href="#locations">Jaipur & Mumbai</a></li>
                 </ul>
-                <div>
+                <div class="nav-actions">
+                    <button class="btn-appointment" id="navBookVisitBtn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span>Book Site Visit</span>
+                    </button>
                     <button class="btn-primary" id="triggerDemoChat">
-                        <span>💬 Chocolate Concierge</span>
+                        <span>💬 AI Property Concierge</span>
                     </button>
                 </div>
             </nav>
         </header>
 
         <main>
-            <!-- Hero Showcase -->
+            <!-- Hero Showcase Section -->
             <section class="hero-section" id="hero">
                 <div class="badge-tag">
-                    <span class="dot"></span>
-                    <span>100+ Partner Farmers • West Godavari, Andhra Pradesh</span>
+                    <span class="dot-gold"></span>
+                    <span>A Legacy of Craftsmanship & Trust Since 1905 • Real Estate Since 2010</span>
                 </div>
                 <h1 class="hero-title">
-                    Crafting a New Indian <br>
-                    <span class="hero-gradient-text">Craft Chocolate™ Experience</span>
+                    Transforming Spaces <br>
+                    <span class="hero-gradient-text">Into Enduring Landmarks</span>
                 </h1>
                 <p class="hero-subtitle">
-                    We are farmers, fermenters, chocolate makers, and chocolatiers. 
-                    Explore our international award-winning single-origin tablets, handcrafted bonbons, 
-                    and our flagship 10,000 sq.ft. Karkhana on Road No. 12, Banjara Hills, Hyderabad.
+                    Guided by the same precision and heritage that established KGK as a global leader in gems and jewelry, 
+                    we craft iconic residential residences, commercial complexes, and industrial hubs across 
+                    <strong>Jaipur, Mumbai, and Delhi NCR</strong>.
                 </p>
+
+                <!-- Hero Action Buttons -->
                 <div class="hero-actions">
-                    <button class="btn-primary" onclick="document.getElementById('botLauncherBtn').click()">
-                        <span>Talk to Chocolate Concierge</span>
+                    <button class="btn-gold-action" id="heroBookAptBtn">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span>Schedule VIP Site Visit</span>
+                    </button>
+                    <button class="btn-outline-action" id="heroExploreProjectsBtn">
+                        <span>Explore 9+ Projects</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
                     </button>
-                    <a href="https://manamchocolate.com/" target="_blank" rel="noopener noreferrer" class="btn-secondary">Visit Official Store ↗</a>
+                    <a href="https://kgkrealty.com/" target="_blank" rel="noopener noreferrer" class="btn-link-action">
+                        Visit Official KGK Realty ↗
+                    </a>
+                </div>
+
+                <!-- Trust Metrics Bar -->
+                <div class="metrics-bar" aria-label="KGK Realty Key Statistics">
+                    <div class="metric-item">
+                        <span class="metric-val">115+</span>
+                        <span class="metric-lbl">Years Global Heritage</span>
+                    </div>
+                    <div class="metric-divider"></div>
+                    <div class="metric-item">
+                        <span class="metric-val">15+</span>
+                        <span class="metric-lbl">Landmark Developments</span>
+                    </div>
+                    <div class="metric-divider"></div>
+                    <div class="metric-item">
+                        <span class="metric-val">100%</span>
+                        <span class="metric-lbl">RERA Approved & Clear Titles</span>
+                    </div>
+                    <div class="metric-divider"></div>
+                    <div class="metric-item">
+                        <span class="metric-val">Jaipur • Mumbai</span>
+                        <span class="metric-lbl">Prime Growth Hubs</span>
+                    </div>
                 </div>
             </section>
 
-            <!-- Support Categories Grid -->
-            <section class="features-grid" id="features" aria-label="Craft Chocolate Highlights">
-                <article class="feature-card" id="tablets">
-                    <div class="card-icon">🍫</div>
-                    <h3>Award-Winning Tablets</h3>
-                    <p>Single-origin dark & milk tablets, single-farm harvests (GVS Prasad Farm), and Lab pairings with Pedda Rasalu Mango & Chakkarakeli Banana.</p>
-                </article>
-                <article class="feature-card" id="karkhana">
-                    <div class="card-icon">🏛️</div>
-                    <h3>The Karkhana Experience</h3>
-                    <p>10,000 sq.ft. flagship in Banjara Hills, Hyderabad featuring live factory conching, interactive chocolate labs, and an all-day specialty café.</p>
-                </article>
-                <article class="feature-card" id="gifting">
-                    <div class="card-icon">🎁</div>
-                    <h3>Luxury Bonbons & Hampers</h3>
-                    <p>Hand-painted edible bonbon jewels with layered ganaches, snacking barks, and bespoke wooden gift boxes for weddings and celebrations.</p>
-                </article>
-                <article class="feature-card">
-                    <div class="card-icon">❄️</div>
-                    <h3>Melt-Free Pan-India Delivery</h3>
-                    <p>All chocolates ship in insulated thermal packaging with food-grade gel ice packs, ensuring pristine condition right to your doorstep.</p>
-                </article>
+            <!-- Featured Properties Showcase -->
+            <section class="section-container" id="projects" aria-label="Landmark Projects">
+                <div class="section-header">
+                    <span class="section-kicker">Distinguished Portfolio</span>
+                    <h2 class="section-title">Iconic Residences & Commercial Hubs</h2>
+                    <p class="section-desc">Experience luxury living and high-return commercial opportunities developed with uncompromised precision.</p>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Card 1: KGK Aarohan -->
+                    <article class="project-card featured" id="cardAarohan">
+                        <div class="card-tag gold">Ultra-Luxury Flagship</div>
+                        <div class="card-visual visual-aarohan">
+                            <div class="visual-badge">C-Scheme, Jaipur</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="project-type-row">
+                                <span class="project-type">Sky Residences & Penthouses</span>
+                                <span class="project-rera">RERA: RAJ/P/2017/385</span>
+                            </div>
+                            <h3>KGK Aarohan</h3>
+                            <p class="project-config">4 & 5 BHK Bespoke Residences | ₹3.5 Cr – ₹7.5 Cr</p>
+                            <p class="project-summary">
+                                Jaipur's most prestigious address in central C-Scheme. Features private high-speed elevators, 
+                                infinity rooftop pool, double-height grand lobby, and panoramic views of Central Park.
+                            </p>
+                            <div class="card-actions">
+                                <button class="btn-card-visit" data-project="KGK Aarohan (C-Scheme, Jaipur)">
+                                    📅 Book Site Visit
+                                </button>
+                                <button class="btn-card-ask" data-query="Tell me everything about KGK Aarohan in C-Scheme">
+                                    Inquire via AI
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2: KGK Sarvam -->
+                    <article class="project-card" id="cardSarvam">
+                        <div class="card-tag blue">Ready to Move</div>
+                        <div class="card-visual visual-sarvam">
+                            <div class="visual-badge">Tonk Road, Jaipur</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="project-type-row">
+                                <span class="project-type">Luxury Stepped Living</span>
+                                <span class="project-rera">RERA: RAJ/P/2018/742</span>
+                            </div>
+                            <h3>KGK Sarvam</h3>
+                            <p class="project-config">3, 4 & 5 BHK Apartments | ₹1.15 Cr – ₹2.85 Cr</p>
+                            <p class="project-summary">
+                                Stepped-terrace architecture near Jawahar Circle and Airport. 80% open landscaped greens, 
+                                multi-level independent clubhouse, indoor sports courts, and swimming pool.
+                            </p>
+                            <div class="card-actions">
+                                <button class="btn-card-visit" data-project="KGK Sarvam (Tonk Road, Jaipur)">
+                                    📅 Book Site Visit
+                                </button>
+                                <button class="btn-card-ask" data-query="Give me floor plans and price details for KGK Sarvam">
+                                    Inquire via AI
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3: KGK Lehariya (Commercial) -->
+                    <article class="project-card" id="cardLehariya">
+                        <div class="card-tag gold">Grade-A Commercial</div>
+                        <div class="card-visual visual-lehariya">
+                            <div class="visual-badge">Airport Road, Jaipur</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="project-type-row">
+                                <span class="project-type">Retail & Corporate Suites</span>
+                                <span class="project-rera">RERA: RAJ/P/2022/1943</span>
+                            </div>
+                            <h3>KGK Lehariya</h3>
+                            <p class="project-config">High-Street Retail & Corporate Offices | ₹55 Lakh – ₹6.5 Cr</p>
+                            <p class="project-summary">
+                                Architectural marvel inspired by Rajasthan's Lehariya weave. Prime high-traffic airport corridor, 
+                                double-height retail frontages, escalators, and multi-tier basement parking.
+                            </p>
+                            <div class="card-actions">
+                                <button class="btn-card-visit" data-project="KGK Lehariya (Airport Road Commercial)">
+                                    📅 Book Site Visit
+                                </button>
+                                <button class="btn-card-ask" data-query="What retail shops and office spaces are open in KGK Lehariya?">
+                                    Inquire via AI
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4: KGK Aahvan -->
+                    <article class="project-card" id="cardAahvan">
+                        <div class="card-tag green">New Construction</div>
+                        <div class="card-visual visual-aahvan">
+                            <div class="visual-badge">Vaishali Nagar, Jaipur</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="project-type-row">
+                                <span class="project-type">Premium Family Homes</span>
+                                <span class="project-rera">RERA: RAJ/P/2021/1594</span>
+                            </div>
+                            <h3>KGK Aahvan</h3>
+                            <p class="project-config">3, 4 & 5 BHK Elite Living | ₹95 Lakh – ₹2.25 Cr</p>
+                            <p class="project-summary">
+                                Located in posh Vaishali Nagar. Complete with temperature-controlled swimming pool, 
+                                EV charging infrastructure, wellness spa, and immediate access to top schools.
+                            </p>
+                            <div class="card-actions">
+                                <button class="btn-card-visit" data-project="KGK Aahvan (Vaishali Nagar, Jaipur)">
+                                    📅 Book Site Visit
+                                </button>
+                                <button class="btn-card-ask" data-query="Tell me about pricing and possession of KGK Aahvan Vaishali Nagar">
+                                    Inquire via AI
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 5: RSM Athena (Mumbai MMR) -->
+                    <article class="project-card" id="cardAthena">
+                        <div class="card-tag blue">Navi Mumbai / MMR</div>
+                        <div class="card-visual visual-athena">
+                            <div class="visual-badge">Ulwe, Navi Mumbai</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="project-type-row">
+                                <span class="project-type">Residential-cum-Commercial</span>
+                                <span class="project-rera">MahaRERA: P52000021980</span>
+                            </div>
+                            <h3>RSM Athena</h3>
+                            <p class="project-config">1, 2 & 3 BHK High-Rise Residences | ₹52 Lakh – ₹1.45 Cr</p>
+                            <p class="project-summary">
+                                14-storey landmark 10 mins from the upcoming Navi Mumbai International Airport (NMIA) 
+                                and Atal Setu (MTHL). High capital appreciation potential and modern rooftop amenities.
+                            </p>
+                            <div class="card-actions">
+                                <button class="btn-card-visit" data-project="RSM Athena (Ulwe, Navi Mumbai)">
+                                    📅 Book Site Visit
+                                </button>
+                                <button class="btn-card-ask" data-query="How close is RSM Athena to Navi Mumbai Airport and Atal Setu?">
+                                    Inquire via AI
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 6: KGK Akshar & Amulya -->
+                    <article class="project-card" id="cardAkshar">
+                        <div class="card-tag green">Ready for Family Life</div>
+                        <div class="card-visual visual-akshar">
+                            <div class="visual-badge">Mansarovar & Jagatpura</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="project-type-row">
+                                <span class="project-type">Contemporary Apartments</span>
+                                <span class="project-rera">RERA: RAJ/P/2019/1102</span>
+                            </div>
+                            <h3>KGK Akshar & Amulya</h3>
+                            <p class="project-config">2, 3 & 4 BHK Family Homes | ₹45 Lakh – ₹1.35 Cr</p>
+                            <p class="project-summary">
+                                Seamless connectivity to Ring Road and Metro corridor. Vaastu-compliant layouts, 
+                                banquet facilities, kids' gaming arcades, and pre-approved loans from all major banks.
+                            </p>
+                            <div class="card-actions">
+                                <button class="btn-card-visit" data-project="KGK Akshar (Mansarovar Ext, Jaipur)">
+                                    📅 Book Site Visit
+                                </button>
+                                <button class="btn-card-ask" data-query="Tell me about 2 and 3 BHK options in KGK Amulya and Akshar">
+                                    Inquire via AI
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- VIP Appointment & Site Visit Booking Banner -->
+            <section class="appointment-callout" id="visitSection">
+                <div class="callout-content">
+                    <span class="callout-kicker">PERSONALIZED REAL ESTATE EXPERIENCE</span>
+                    <h2>Schedule a Guided Site Visit or Private Consultation</h2>
+                    <p>
+                        Tour completed model sky residences, examine detailed floor specifications, and meet our senior property advisors. 
+                        Complimentary private vehicle pickup available across Jaipur.
+                    </p>
+                    <div class="callout-actions">
+                        <button class="btn-callout-primary" id="openAppointmentWizardBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            <span>Launch Appointment Booking</span>
+                        </button>
+                        <button class="btn-callout-lookup" id="lookupAppointmentBtn">
+                            <span>🔍 Check Existing Appointment</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Company Heritage & Values Section -->
+            <section class="section-container" id="legacy" aria-label="KGK Group Heritage">
+                <div class="section-header">
+                    <span class="section-kicker">115+ Years of Trust</span>
+                    <h2 class="section-title">Built with the Precision of Fine Jewelry</h2>
+                    <p class="section-desc">Just as a diamond is treasured for generations, real estate is the cornerstone of lifelong family prosperity.</p>
+                </div>
+
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <div class="pillar-icon">💎</div>
+                        <h3>Uncompromised Craftsmanship</h3>
+                        <p>We apply the exact same uncompromising standards of diamond cutting and fine jewelry engineering to structural design, waterproofing, and acoustic engineering.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon">📍</div>
+                        <h3>Prime Strategic Locations</h3>
+                        <p>Every development is located along prime transit corridors—JLN Marg, C-Scheme, Tonk Road, Vaishali Nagar, and the upcoming Navi Mumbai Airport axis.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon">⚖️</div>
+                        <h3>100% RERA & Legal Transparency</h3>
+                        <p>Zero encumbrance, clear freehold land titles, escrow protected accounts, and strict adherence to possession milestone schedules.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <div class="pillar-icon">🤝</div>
+                        <h3>Preferred Banking Partners</h3>
+                        <p>Direct pre-approvals and subsidized processing with India's premier financial institutions including SBI, HDFC, ICICI, Axis Bank, and Bank of Baroda.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Corporate Contact & Regional Desks -->
+            <section class="section-container contact-section" id="locations" aria-label="KGK Realty Locations">
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-header">
+                            <span class="location-badge">Global Headquarters</span>
+                            <h3>Jaipur Executive Campus</h3>
+                        </div>
+                        <p class="contact-address">
+                            KGK Realty (India) Limited, E.P. Campus, Near Jawahar Circle, JLN Marg, Jaipur, Rajasthan 302017
+                        </p>
+                        <ul class="contact-details">
+                            <li><strong>Helpline:</strong> +91 98296 25004 / 08071822869</li>
+                            <li><strong>WhatsApp Concierge:</strong> +91 88241 00200</li>
+                            <li><strong>Sales Desk:</strong> sales@kgkrealty.com</li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-header">
+                            <span class="location-badge">Western Region</span>
+                            <h3>Mumbai Regional Office</h3>
+                        </div>
+                        <p class="contact-address">
+                            3rd Floor, KGK Tower II, Dattapada Road, Rajendra Nagar, Near Ekta Bhoomi Gardens, Borivali (East), Mumbai 400066
+                        </p>
+                        <ul class="contact-details">
+                            <li><strong>Office Phone:</strong> +91 22 4028 8888</li>
+                            <li><strong>MMR Desk:</strong> mumbai.sales@kgkrealty.com</li>
+                            <li><strong>Timings:</strong> 9:30 AM – 7:00 PM (All 7 Days)</li>
+                        </ul>
+                    </div>
+                </div>
             </section>
         </main>
+
+        <footer class="site-footer">
+            <div class="footer-bottom">
+                <p>© 2026 KGK Group • Real Estate Division (KGK Realty). All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="https://kgkrealty.com/" target="_blank">Official Website</a>
+                    <a href="https://www.kgkgroup.com/our-business/real-estate" target="_blank">KGK Group</a>
+                    <a href="https://rera.rajasthan.gov.in/" target="_blank">Rajasthan RERA</a>
+                </div>
+            </div>
+        </footer>
     </div>
 
-    <!-- ==============================================
-         BOTTOM-RIGHT CUSTOMER SUPPORT CHATBOT WIDGET
-         ============================================== -->
-    <aside class="bot-widget-container" id="botWidgetContainer" aria-label="Manam Chocolate Concierge Chat">
+    <!-- ==============================================================
+         BOTTOM-RIGHT LUXURY REAL ESTATE AI CHATBOT WIDGET
+         ============================================================== -->
+    <aside class="bot-widget-container" id="botWidgetContainer" aria-label="KGK Real Estate AI Concierge Chat">
         
         <!-- Welcome Floating Tooltip -->
         <div class="bot-tooltip-bubble" id="botTooltipBubble" role="status">
-            <span class="hand-wave">🍫</span>
-            <span>Craving craft chocolate? Ask our Concierge!</span>
+            <span class="hand-wave">🏛️</span>
+            <span>Planning property in Jaipur or Mumbai? Book a site visit or ask anything!</span>
         </div>
 
         <!-- Chat Window Panel (Bottom-Right) -->
-        <section class="bot-chat-window" id="botChatWindow" role="region" aria-label="Manam Chat Conversation">
+        <section class="bot-chat-window" id="botChatWindow" role="region" aria-label="KGK Real Estate AI Conversation">
             
             <!-- Window Header -->
             <div class="chat-header">
                 <div class="header-agent-info">
                     <div class="agent-avatar-wrapper">
-                        <div class="agent-avatar">🍫</div>
-                        <span class="agent-status-indicator" title="Concierge Active"></span>
+                        <div class="agent-avatar">🏛️</div>
+                        <span class="agent-status-indicator" title="Relationship Desk Active"></span>
                     </div>
                     <div class="agent-details">
-                        <h4>Manam Concierge <span class="verified-badge" title="Official Brand Concierge">✓</span></h4>
-                        <p>● Live from Hyderabad Karkhana</p>
+                        <h4>KGK Real Estate Concierge <span class="verified-badge" title="Official KGK Group Representative">✓</span></h4>
+                        <p id="agentStatusText">● Live Relationship Desk • 24/7</p>
                     </div>
                 </div>
                 
                 <div class="header-action-buttons">
+                    <!-- Quick Appointment Button -->
+                    <button class="icon-btn" id="chatAppointmentWizardTrigger" title="Book Site Visit" aria-label="Open Site Visit Booking Form">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </button>
                     <!-- Sound toggle -->
                     <button class="icon-btn" id="soundToggleBtn" title="Toggle audio chime" aria-label="Toggle chime sounds">
                         <svg viewBox="0 0 24 24">
@@ -143,7 +463,7 @@
 
             <!-- Messages Stream Area -->
             <div class="chat-messages-container" id="chatMessagesContainer" role="log" aria-live="polite">
-                <!-- Messages & suggestions populated dynamically by script.js -->
+                <!-- Messages, interactive booking forms & cards rendered by script.js -->
             </div>
 
             <!-- Chat Input Footer -->
@@ -152,9 +472,9 @@
                     <textarea 
                         class="chat-input-field" 
                         id="chatInputField" 
-                        placeholder="Ask about tablets, Karkhana, orders..." 
+                        placeholder="Ask about projects, pricing, RERA, or type 'book visit'..." 
                         rows="1"
-                        aria-label="Your question"></textarea>
+                        aria-label="Your inquiry"></textarea>
                     <button type="submit" class="chat-send-btn" id="chatSendBtn" aria-label="Send message">
                         <svg viewBox="0 0 24 24">
                             <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
@@ -162,16 +482,16 @@
                     </button>
                 </form>
                 <div class="chat-branding-note">
-                    Crafted by <strong>Manam Chocolate</strong> • West Godavari to Hyderabad
+                    Official Concierge • <strong>KGK Group Real Estate</strong> (Jaipur • Mumbai)
                 </div>
             </div>
         </section>
 
         <!-- Floating Right-Corner Launcher Button -->
-        <button class="bot-launcher-btn" id="botLauncherBtn" aria-label="Open Manam Chocolate Concierge">
+        <button class="bot-launcher-btn" id="botLauncherBtn" aria-label="Open KGK Real Estate Concierge">
             <span class="bot-launcher-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
-                    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+                    <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/>
                 </svg>
             </span>
             <span class="bot-close-icon" aria-hidden="true">
